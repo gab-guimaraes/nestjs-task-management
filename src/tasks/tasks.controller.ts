@@ -1,13 +1,13 @@
 import { Controller, Get, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Body, Delete, Param, Patch } from '@nestjs/common/decorators/http';
 import { CreateTaskDto } from './dto/create-task.dto';
-import { Task, TaskStatus } from './tasks.model';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
 export class TasksController {
   constructor(private taskService: TasksService) {} // nest.js dependency injection
 
+  /*
   @Get()
   getAllTasks(): Task[] {
     return this.taskService.getAllTasks();
@@ -35,5 +35,5 @@ export class TasksController {
     @Body('status') status: TaskStatus,
   ): Task {
     return this.taskService.updateTaskStatus(id, status);
-  }
+  }*/
 }
