@@ -12,7 +12,14 @@ export class AuthService {
 
   }
 
-  singUp(authCredencialsDto: AuthCredencialsDto): Promise<void> {
+  async singUp(authCredencialsDto: AuthCredencialsDto): Promise<void> {
     return this.userRepository.singUp(authCredencialsDto);
   }
+
+  async singIn(authCredencialsDto: AuthCredencialsDto): Promise<void> {
+    const result = this.userRepository.validateUserPassword(authCredencialsDto);
+    console.log(result);
+  }
+
+
 }

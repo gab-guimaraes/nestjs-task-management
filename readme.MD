@@ -27,3 +27,5 @@ npm install --save @nestjs/typeorm typeorm pg
 nest g module auth
 nest g controller auth --no-spec
 nest g service auth --no-spec
+
+npm install bcrypt --save
