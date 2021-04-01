@@ -22,18 +22,8 @@ install postresql
 npm install --save @nestjs/typeorm typeorm pg
 
 
-IMPORTANT: TypeORM Entity Configuration
-
-In the upcoming lectures, I will be definint the "entities" property of the TypeORM configuration like so:
-
-entities: [__dirname + '/../**/*.entity.{js,ts}']
-
-
-
-Instead, DO NOT include the "entities" property, and add the following property to the configuration:
-
-autoLoadEntities: true
-
-
-
+<h3>auth<h3>
  
+nest g module auth
+nest g controller auth --no-spec
+nest g service auth --no-spec
