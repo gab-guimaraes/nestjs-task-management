@@ -15,7 +15,7 @@ export class AuthController {
   }
 
   @Post('/singnin')
-  singIn(@Body(ValidationPipe) authCredencialsDto: AuthCredencialsDto): Promise<void> {
+  singIn(@Body(ValidationPipe) authCredencialsDto: AuthCredencialsDto): Promise<{ accessToken: string }> {
     return this.authService.singIn(authCredencialsDto);
   }
 

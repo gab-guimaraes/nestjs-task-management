@@ -29,3 +29,8 @@ nest g controller auth --no-spec
 nest g service auth --no-spec
 
 npm install bcrypt --save
+
+
+<h3>JWT Tokens - Passport.js</h3>
+
+npm install @nestjs/jwt @nestjs/passport passport passport-jwt
