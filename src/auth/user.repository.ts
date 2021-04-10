@@ -29,7 +29,7 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  async validateUserPassword(authCredencialsDto: AuthCredencialsDto): Promise<string> {
+  async validateUserPassword(authCredencialsDto: AuthCredencialsDto) {
     const { username, password } = authCredencialsDto;
     const user = await this.findOne({ username });
 
@@ -43,7 +43,7 @@ export class UserRepository extends Repository<User> {
     }
   }
 
-  private async hashPassword(password: String, salt: String): Promise<string> {
+  private async hashPassword(password: string, salt: string): Promise<string> {
     return bcrypt.hash(password, salt);
   }
 }
