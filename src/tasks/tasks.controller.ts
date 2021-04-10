@@ -1,11 +1,13 @@
-import { Controller, Get, ParseIntPipe, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, ParseIntPipe, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { Body, Delete, Param, Patch } from '@nestjs/common/decorators/http';
+import { AuthGuard } from '@nestjs/passport';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { TaskStatus } from './task-status';
 import { Task } from './task.entity';
 import { TasksService } from './tasks.service';
 
 @Controller('tasks')
+@UseGuards(AuthGuard())
 export class TasksController {
   constructor(private taskService: TasksService) {} // nest.js dependency injection
 
@@ -34,33 +36,4 @@ export class TasksController {
     return this.taskService.updateTaskStatus(id, status);
   }
 
-  /*
-  @Get()
-  getAllTasks(): Task[] {
-    return this.taskService.getAllTasks();
-  }
-
-  @Get('/:id')
-  getTaskById(@Param('id') id: string) {
-    return this.taskService.getTaskById(id);
-  }
-
-  @Delete('/:id')
-  deleteTaskById(@Param('id') id: string) {
-    return this.taskService.deleteTask(id);
-  }
-
-  @Post()
-  @UsePipes(ValidationPipe)
-  createTask(@Body() createTaskDto: CreateTaskDto){
-    return this.taskService.createTask(createTaskDto);
-  }
-
-  @Patch('/:id/status') 
-  updateTaskStatus(
-    @Param('id') id: string,
-    @Body('status') status: TaskStatus,
-  ): Task {
-    return this.taskService.updateTaskStatus(id, status);
-  }*/
 }
